@@ -14,4 +14,4 @@ const myQuiz = [
     }
 
 ]
-console/log(myQuiz);
+console.log(myQuiz);
