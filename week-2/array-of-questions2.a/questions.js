@@ -1,7 +1,7 @@
 //Array of questions
 const myQuiz = [
     {
-        question: "What do you use to color that comes in a box of 24",
+        question: "What do you use to color that comes in a box of 24?",
         answer: "Crayons"
     },
     {
@@ -14,4 +14,10 @@ const myQuiz = [
     }
 
 ]
-console.log(myQuiz);
+console.log("Hello, please answer the following question: ", myQuiz[0].question);
+
+//Generating random question
+const myRandomQues = Math.floor (Math.random() * myQuiz.length);
+console.log(myRandomQues);
+
+
