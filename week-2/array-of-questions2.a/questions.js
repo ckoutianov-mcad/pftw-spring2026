@@ -20,4 +20,8 @@ console.log("Hello, please answer the following question: ", myQuiz[0].question)
 const myRandomQues = Math.floor (Math.random() * myQuiz.length);
 console.log(myRandomQues);
 
+//Creating prompt
+const userQuestion = window.prompt(myQuiz[myRandomQues].question);
+
+
 
