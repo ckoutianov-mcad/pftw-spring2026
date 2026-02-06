@@ -3,20 +3,21 @@ function setup() {
 }
 function createTile() {
     translate(0,0);
-    fill('gray');
+    fill('green');
     rect(0, 0, 200, 200);
     stroke('white');
-    strokeWeight(5);
+    strokeWeight(15);
     line(0, 0, 200, 200);
     line(200, 0, 0, 200);
-    noStroke();
-    fill('yellow');
+    stroke('white');
+    strokeWeight(10)
+    fill('pink');
     circle(100, 50, 50);
     circle(50, 100, 50);
     circle(150, 100, 50);
     circle(100, 150, 50);
-    noFill();
-    stroke('purple');
+    fill('gray');
+    stroke('pink');
     strokeWeight(10);
     circle(100, 100, 100);
     
