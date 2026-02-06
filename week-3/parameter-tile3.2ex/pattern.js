@@ -38,5 +38,5 @@ function draw() {
   createTile(200, -400, 'olive', 'orange', 'aqua', 'magenta');
   createTile(0, 200, 'cyan', 'tomato', 'lime', 'violet');
   createTile(0, 200, 'teal', 'orange', 'aqua', 'magenta');
-
+noLoop();
 }
