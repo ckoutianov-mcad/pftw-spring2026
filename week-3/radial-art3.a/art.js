@@ -6,6 +6,7 @@ function setup() {
     angleMode(DEGREES);
 }
 
+
 function makeArm(rotateBy) {
     let alt = Math.round(rotateBy / 90);
     console.log(alt);
@@ -32,4 +33,5 @@ function draw() {
 }
 function mousePressed() {
     noLoop();
+    window.alert("Cool Art!")
 }
