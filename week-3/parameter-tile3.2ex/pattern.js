@@ -29,13 +29,13 @@ function createTile(originX, originY, primaryColor, secondaryColor, circleOutlin
   circle(100, 100, 100);
 }
 function draw() {
-  createTile(0, 0, 'teal', 'white', 'aqua', 'magenta');
+  createTile(0, 0, 'teal', 'orange', 'aqua', 'magenta');
   createTile(0, 200, 'green', 'tomato', 'lime', 'violet');
-  createTile(0, 200, 'olive', 'white', 'aqua', 'magenta');
+  createTile(0, 200, 'olive', 'orange', 'aqua', 'magenta');
   createTile(200, -400, 'cyan', 'tomato', 'lime', 'violet');
-  createTile(0, 200, 'teal', 'white', 'aqua', 'magenta');
+  createTile(0, 200, 'teal', 'orange', 'aqua', 'magenta');
   createTile(0, 200, 'green', 'tomato', 'lime', 'violet');
-  createTile(200, -400, 'olive', 'white', 'aqua', 'magenta');
+  createTile(200, -400, 'olive', 'orange', 'aqua', 'magenta');
   createTile(0, 200, 'cyan', 'tomato', 'lime', 'violet');
   createTile(0, 200, 'teal', 'orange', 'aqua', 'magenta');
 
