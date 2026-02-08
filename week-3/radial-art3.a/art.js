@@ -1,12 +1,16 @@
 let rotateBy = 30;
 
+//Canvas, initial intructions for user
 function setup() {
     createCanvas (600, 600);
     background("#0D1A63");//background color
     angleMode(DEGREES);
+    window.alert(
+      "Creat your own design! You're in control on the amount of lines and shapes drawn! To stop, simply double-click on the canvas to make the design stop. Double-click again to continue where you left off."
+    );
 }
 
-
+//Design 
 function makeArm(rotateBy) {
     let alt = Math.round(rotateBy / 90);
     console.log(alt);
@@ -22,9 +26,10 @@ function makeArm(rotateBy) {
     stroke("#bdff52ff");
     strokeWeight(2);
     ellipse(160, 160 / alt, 150 - alt);
+
 }
 
-
+//Loop
 function draw() {
     translate(300, 300);
     rotate(rotateBy);
@@ -32,10 +37,10 @@ function draw() {
     rotateBy +=50;
 }
 
+//Loop Control by user
 function doubleClicked() {
   if (isLooping() === true) {
     noLoop();
-    window.alert("Cool design! Double click if you wish to continue where you left off.");
   } else {
     loop();
   }
