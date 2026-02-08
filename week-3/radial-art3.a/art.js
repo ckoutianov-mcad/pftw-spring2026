@@ -31,7 +31,12 @@ function draw() {
     makeArm(rotateBy);
     rotateBy +=50;
 }
-function mousePressed() {
+
+function doubleClicked() {
+  if (isLooping() === true) {
     noLoop();
-    window.alert("Cool Art!")
+    window.alert("Cool Art! Double click if you wish to continue adding more.");
+  } else {
+    loop();
+  }
 }
