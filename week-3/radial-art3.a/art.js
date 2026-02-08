@@ -35,7 +35,7 @@ function draw() {
 function doubleClicked() {
   if (isLooping() === true) {
     noLoop();
-    window.alert("Cool Art! Double click if you wish to continue adding more.");
+    window.alert("Cool design! Double click if you wish to continue where you left off.");
   } else {
     loop();
   }
