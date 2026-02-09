@@ -6,7 +6,7 @@ function setup() {
     background("#0D1A63");//background color
     angleMode(DEGREES);
     window.alert(
-      "Creat your own design! You're in control on the amount of lines and shapes drawn. To stop, simply double-click on the canvas to make the design stop. Double-click again to continue where you left off."
+      "Creat your own design! You're in control on the amount of lines and shapes drawn. To stop, simply double-click on the canvas. Double-click again to continue where you left off."
     );
 }
 
