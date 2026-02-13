@@ -13,7 +13,6 @@ heading.addEventListener('click', handleHeadingClick);
 myEmptyDiv.appendChild(heading);
 
 //function
-function handleHeadingClick () {
-    document.body.style.backgroundColor = 'lightblue';
+function handleHeadingClick() {
+  document.body.style.backgroundColor = 'lightblue';
 }
-
