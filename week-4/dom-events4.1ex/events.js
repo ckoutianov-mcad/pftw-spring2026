@@ -12,6 +12,6 @@ myEmptyDiv.appendChild(heading);
 //function
 function handleHeadingClick() {
     console.log('Heading has been clicked');
-    document.body.style.backgroundColor = 'green';
+    document.body.style.backgroundColor = 'lightblue';
 }
 
