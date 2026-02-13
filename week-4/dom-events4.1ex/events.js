@@ -5,6 +5,9 @@ const myEmptyDiv = document.querySelector("#myEmptyDiv");
 const heading = document.createElement('h1');
 heading.innerHTML = 'Hello everyone! It is a rainy day!';
 
+//cursor mouse styled
+heading.style.cursor = 'pointer';
+
 heading.addEventListener('click', handleHeadingClick);
 //attach to DOM
 myEmptyDiv.appendChild(heading);
