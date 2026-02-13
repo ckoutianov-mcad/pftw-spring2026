@@ -4,7 +4,6 @@ const rectWidth = 75;
 let rectY;
 const rectHeight= 75;
 
-
 //hit count
 let clickCount = 0;
 
@@ -35,8 +34,7 @@ function mousePressed () {
     if ((mouseX >= rectX && mouseX <= rectX + rectWidth) && (mouseY >= rectY && mouseY<= rectY + rectHeight)) {
     clickCount++;
     console.log('Hit #', clickCount);
-    }
-   
+    }  
 }
 
 //style of shape
