@@ -1,13 +1,13 @@
 //var setup
 const circleDiameter = 100;
 let startingX = 200;
-let startingY = 100;
+let startingY = 200;
 let myCircles = [];
 let startingId = 0;
 
 //canvas setup
 function setup () {
-    createCanvas(1040, 500);
+    createCanvas(1040, 600);
     background("#617891");
 
 
