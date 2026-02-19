@@ -18,13 +18,14 @@ class Bubble {
     }
 
     move () {
-        
+        this.x = this.x + random(-5, 10);
+        this.y = this.y + random(-5, 5);
     }
 
     show() {
         stroke(255);
         strokeWeight(4);
         fill("#815BFF");
-        ellipse(this.x, this.y, 24, 24)
+        ellipse(this.x, this.y, 50, 34)
     }
 }
