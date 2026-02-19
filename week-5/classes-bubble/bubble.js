@@ -1,3 +1,15 @@
+let bubble;
+
+function setup() {
+    createCanvas(500, 500);
+    bubble = new Bubble();
+}
+
+function draw() {
+    background("#FF00BF");
+    bubble.move();
+    bubble.show();
+}
 
 class Bubble {
     constructor() {
