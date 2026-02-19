@@ -1,14 +1,18 @@
-let bubble;
+let bubble1;
+let bubble2;
 
 function setup() {
     createCanvas(500, 500);
-    bubble = new Bubble();
+    bubble1 = new Bubble();
+    bubble2 = new Bubble();
 }
 
 function draw() {
-    background("#FF00BF");
-    bubble.move();
-    bubble.show();
+    background("#003366");
+    bubble1.move();
+    bubble1.show();
+    bubble2.move();
+    bubble2.show();
 }
 
 class Bubble {
@@ -23,9 +27,9 @@ class Bubble {
     }
 
     show() {
-        stroke(255);
+        stroke("#0000FF");
         strokeWeight(4);
-        fill("#815BFF");
+        fill("#66FF00");
         ellipse(this.x, this.y, 50, 34)
     }
 }
