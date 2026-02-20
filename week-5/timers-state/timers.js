@@ -2,13 +2,14 @@ let blockX = 0;
 let blockY = 0;
 let blockColor = 255;
 let drawTimer;
-const speed = 10;
-const distance = 2;
+const speed = 30;
+const distance = 10;
 
 
 function setup () {
     createCanvas(500, 500);
-    background(0);
+    background("#3F4C5C");
+    window.alert('Press any number 0-9 on your number keys to change grayscale of the squares. It will let you know when it is complete.')
 }
 
 function drawBlock(x, y, color) {
@@ -20,15 +21,14 @@ function keyTyped() {
     if (isNaN(keyToNumber)){
         return;
     }
-    keyToNumber = map(keyToNumber, 1, 9, 1, 255);
-    console.log('converted number', keyToNumber);
+    keyToNumber = map(keyToNumber, 1, 9, 0, 255);
     blockColor = keyToNumber;
-    console.log('you pressed', keyToNumber);
 }
+
+
 window.setTimeout(() => {
 drawTimer = window.setInterval(() => {
   if (blockY - 50 <= height) {
-    console.log("hello speedracer");
     drawBlock(blockX, blockY, blockColor);
     blockY += distance;
   } else {
@@ -37,6 +37,6 @@ drawTimer = window.setInterval(() => {
   }
   if (blockY - 50 > height && blockX - 50 > width) {
     window.clearInterval(drawTimer);
-    alert('done'); }
+    alert('Your work is complete.'); }
 }, speed);
 }, 1500);
