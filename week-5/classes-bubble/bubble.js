@@ -13,7 +13,6 @@ function draw() {
   bubble1.show();
   bubble2.move();
   bubble2.show();
-
 }
 
 class Bubble {
