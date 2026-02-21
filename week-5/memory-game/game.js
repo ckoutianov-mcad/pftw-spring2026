@@ -1,35 +1,28 @@
 //var setup
-const circleDiameter = 100;
-let startingX = 200;
-let startingY = 200;
-let myCircles = [];
-let startingId = 0;
+
 
 //canvas setup
 function setup() {
-  createCanvas(1040, 600);
-  background("#617891");
-
-  //data array
-  for (let k = 0; k < 2; k++) {
-    for (let i = 0; i < 5; i++) {
-      ellipse(startingX, startingY, circleDiameter);
-      myCircles.push({ x: startingX, y: startingY, id: startingId });
-      startingX += 150;
-      startingId++;
-    }
-    startingY += 150;
-    startingX = 200;
-  }
-  console.log(myCircles);
+  createCanvas(1000, 800);
+  background("#617891"); 
+  let myCard = new Card();
+  //alert('Match the fruit slices.')
 }
 
-//event
-function mousePressed() {
-  for (let j = 0; j < myCircles.length; j++) {
-    let distance = dist(mouseX, mouseY, myCircles[j].x, myCircles[j].y);
-    if (distance < circleDiameter / 2) {
-      console.log("circle clicked", myCircles[j].id);
-    }
-  }
+//class constructor
+class Card {
+    constructor() {
+    this.x = 100;
+    this.y = 100;
+    this.width = 80;
+    this.height = 100;
+    this.show();
+}
+
+show () {
+    fill ("#000000");
+    rect(this.x, this.y, this.width, this.height, 5);
+}
+
+//end of card-constructor
 }
