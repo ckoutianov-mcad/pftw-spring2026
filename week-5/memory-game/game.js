@@ -1,9 +1,13 @@
+/* 
+WORK IN PROGRESS
+1. target hit for circle is on lower right quarter. 
+*/
+
 //var setup
-let myCard;
 const DOWN = 'down';
 const UP = 'up';
-let startingX = 100;//loops
-let startingY = 100;
+let startingX = 150;//loops
+let startingY = 150;
 let cards = [];
 gameState = {
 
@@ -11,26 +15,27 @@ gameState = {
 
 //canvas setup
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1000, 600);
   background("#30364F");
   for (let j = 0; j < 2; j++) {
     for (let i = 0; i < 5; i++) {
     cards.push(new Card(startingX, startingY)); 
-    startingX += 150;
-    console.log(startingX);}
-  }
-    startingY += 150;
-    startingX = 100
-  {
-
- startingX += 100;
+    startingX += 150; //space between for new cards
+        }
+    startingY += 150; //starting y
+    startingX = 150;
   }
   //alert('Match the fruit slices.')
 }//end setup
 
 //event
 function mousePressed() {
-    console.log(myCard.didHit(mouseX, mouseY));
+    for (let k = 0; k < cards.length; k++) {
+        if (cards[k].didHit(mouseX, mouseY)) {
+            console.log('flipped');
+        }
+    }
+
 }//end event
 
 //class constructor
@@ -38,8 +43,8 @@ class Card {
     constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.width = 120;
-    this.height = 120;
+    this.width = 100;
+    this.height = 100;
     this.face = DOWN;
     this.show();
 }//end card
