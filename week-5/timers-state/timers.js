@@ -5,7 +5,6 @@ let drawTimer;
 const speed = 30;
 const distance = 10;
 
-
 function setup () {
     createCanvas(500, 500);
     background("#3F4C5C");
@@ -24,7 +23,6 @@ function keyTyped() {
     keyToNumber = map(keyToNumber, 1, 9, 0, 255);
     blockColor = keyToNumber;
 }
-
 
 window.setTimeout(() => {
 drawTimer = window.setInterval(() => {
