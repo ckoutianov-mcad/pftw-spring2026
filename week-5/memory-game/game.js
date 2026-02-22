@@ -1,6 +1,9 @@
 /* 
-WORK IN PROGRESS
-1. target hit for circle is on lower right quarter. 
+    WORK IN PROGRESS
+    1. imgage resizing
+    2. placement
+    3. pair matching
+    3. record score
 */
 
 //var setup
@@ -40,44 +43,43 @@ function mousePressed() {
 
 //class constructor
 class Card {
-    constructor(x, y) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
     this.width = 100;
     this.height = 100;
     this.face = DOWN;
     this.show();
-}//end card
-show () {
-    if (this.face === DOWN)
-        {
-          fill("#E1D9BC");
-          ellipse(this.x, this.y, this.width, this.height);
-        } else {
-            fill("#ff7444");
-            ellipse(this.x, this.y, this.width, this.height);
-    }
-}//end show
-didHit (mouseX, mouseY) {
-    if (mouseX >= this.x && mouseX <= this.x + this.width &&
-        mouseY >= this.y && mouseY <= this.y + this.height) {
-            this.flip();
-            return true;
-        } else {
-            return false;
-        } 
-    } //x,y
-flip () {
+  } //end card
+  show() {
     if (this.face === DOWN) {
-        this.face = UP;
+      fill("#E1D9BC");
+      ellipse(this.x, this.y, this.width, this.height);
     } else {
-        this.face = DOWN;
+      fill("#ff7444");
+      ellipse(this.x, this.y, this.width, this.height);
     }
-        this.show();
-}//end flip
+  } //end show
+  didHit(mouseX, mouseY) {
+    const distance = dist(mouseX, mouseY, this.x, this.y);
+    console.log("dist", distance);
+    if (distance <= this.width / 2) {
+      this.flip();
+      return true;
+    } else {
+      return false;
+    }
+  } //x,y
+  flip() {
+    if (this.face === DOWN) {
+      this.face = UP;
+    } else {
+      this.face = DOWN;
+    }
+    this.show();
+  } //end flip
 
-
-//end of card-constructor       
+  //end of card-constructor
 }
 
 
