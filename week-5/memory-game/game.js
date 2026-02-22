@@ -9,24 +9,38 @@
 //var setup
 const DOWN = 'down';
 const UP = 'up';
-let startingX = 150;//loops
-let startingY = 150;
+let startingX = 100;//loops
+let startingY = 100;
 let cards = [];
 gameState = {
 
+};
+//front - images
+let cardfaceArray = [];
+//back of card
+let cardback;
+function preload() {
+    cardback = loadImage('images/cardback.png');
+    cardfaceArray = [
+      loadImage('images/banana.png'),
+      loadImage('images/strawberry.png'),
+      loadImage('images/bloodorange.png'),
+      loadImage('images/watermelon.png'),
+      loadImage('images/papaya.png')
+    ]
 }
 
 //canvas setup
 function setup() {
-  createCanvas(1000, 600);
+  createCanvas(800, 600);
   background("#30364F");
   for (let j = 0; j < 2; j++) {
     for (let i = 0; i < 5; i++) {
     cards.push(new Card(startingX, startingY)); 
-    startingX += 150; //space between for new cards
+    startingX += 120; //space between for new cards
         }
-    startingY += 150; //starting y
-    startingX = 150;
+    startingY += 120; //starting y
+    startingX = 100;
   }
   //alert('Match the fruit slices.')
 }//end setup
@@ -38,25 +52,30 @@ function mousePressed() {
             console.log('flipped');
         }
     }
-
 }//end event
 
 //class constructor
 class Card {
-  constructor(x, y) {
+  constructor(x, y, cardFaceImg) {
     this.x = x;
     this.y = y;
     this.width = 100;
     this.height = 100;
     this.face = DOWN;
+    this.cardFaceImg = cardFaceImg;
     this.show();
   } //end card
   show() {
     if (this.face === DOWN) {
       fill("#E1D9BC");
+      strokeWeight(3)
+      stroke("#261CC1");
       ellipse(this.x, this.y, this.width, this.height);
+      image(cardback, this.x - 50, this.y - 50); //adjust position ex. +10
     } else {
       fill("#ff7444");
+      strokeWeight(3);
+      stroke("#F1FF5E");
       ellipse(this.x, this.y, this.width, this.height);
     }
   } //end show
