@@ -9,8 +9,8 @@
 //var setup
 const DOWN = 'down';
 const UP = 'up';
-let startingX = 100;//loops
-let startingY = 100;
+let startingX = 150;//loops
+let startingY = 150;
 let cards = [];
 gameState = {
 
@@ -34,13 +34,13 @@ function preload() {
 function setup() {
   createCanvas(800, 600);
   background("#30364F");
-  for (let j = 0; j < 2; j++) {
-    for (let i = 0; i < 5; i++) {
-    cards.push(new Card(startingX, startingY)); 
+  for (let j = 0; j < 4; j++) {
+    for (let i = 0; i < 4; i++) {
+    cards.push(new Card(startingX, startingY, cardfaceArray[0])); 
     startingX += 120; //space between for new cards
         }
     startingY += 120; //starting y
-    startingX = 100;
+    startingX = 150;
   }
   //alert('Match the fruit slices.')
 }//end setup
@@ -49,7 +49,7 @@ function setup() {
 function mousePressed() {
     for (let k = 0; k < cards.length; k++) {
         if (cards[k].didHit(mouseX, mouseY)) {
-            console.log('flipped');
+            console.log('flipped', cards[k]);
         }
     }
 }//end event
@@ -77,6 +77,7 @@ class Card {
       strokeWeight(3);
       stroke("#F1FF5E");
       ellipse(this.x, this.y, this.width, this.height);
+       image(this.cardFaceImg, this.x - 50, this.y - 50); 
     }
   } //end show
   didHit(mouseX, mouseY) {
