@@ -1,7 +1,7 @@
 //var setup
 const DOWN = 'down';
 const UP = 'up';
-let startingX = 150;//loops
+let startingX = 150;
 let startingY = 150;
 let cards = [];
 gameState = {
@@ -34,31 +34,31 @@ function preload() {
 function setup() {
   createCanvas(800, 850);
   let selectedFaces = [];
-  for (let z = 0; z < 10; z++) {//images in project
+  for (let z = 0; z < 10; z++) {
     const randomIndex = floor(random(cardfaceArray.length));
     const face = cardfaceArray[randomIndex];
     selectedFaces.push(face);
     selectedFaces.push(face);
-    //remove the used cardface so that it does not get randomly select again
+    //remove the used cardface so that it does not get randomly selected again
     cardfaceArray.splice(randomIndex, 1);
   }
-  selectedFaces = shuffleArray(selectedFaces); //random selection
-  for (let j = 0; j < 4; j++)  {//rows
-    for (let i = 0; i < 5; i++)  {//columns
+  //random selection 
+  selectedFaces = shuffleArray(selectedFaces);
+  for (let j = 0; j < 4; j++)  {
+    for (let i = 0; i < 5; i++)  {
       const faceImage = selectedFaces.pop();
     cards.push(new Card(startingX, startingY, faceImage)); 
-    startingX += 120; //space between for new cards
+    startingX += 120; 
         }
-    startingY += 120; //starting y
+    startingY += 120;
     startingX = 150;
   }
-}//end setup
+}
 
-//draw - scoreboard and message to the winner
+//draw - styling, scoreboard, message at the end of game
 function draw () {
    background("#30364F");
    if (gameState.numberMatched === gameState.totalPairs) {
-    //message to user when match completed
 fill("#3A9AFF");
 noStroke();
 textSize(24);
@@ -85,15 +85,15 @@ text('Great job! Memory games help improve mental alertness. 👏', 100, 650);
    textSize(36);
    text('Attempts: ' + gameState.attempts, 475, 750);
    text('Matches: ' + gameState.numberMatched, 100, 750);
-}//end of draw
+}
 
-//event
+//event - when user clicks on cards
 function mousePressed() {
     if (gameState.waiting) {
       return;
     }
     for (let k = 0; k < cards.length; k++) {
-      //check number of cards flipped, then trigger flip func.
+      //check number of cards flipped, then trigger flip function
         if (gameState.flippedCards.length < 2 && cards[k].didHit(mouseX, mouseY)) {
             gameState.flippedCards.push(cards[k]);
         }
@@ -102,7 +102,7 @@ function mousePressed() {
       gameState.attempts++
       //cards matched to the same image
       if (gameState.flippedCards[0].cardFaceImg === gameState.flippedCards[1].cardFaceImg) {
-        //card match, score: marked as matched so they do not flip back
+        //card match, score: marked as matched and prevents cards to flip back
         gameState.flippedCards[0].isMatch = true;
         gameState.flippedCards[1].isMatch = true;
         //empty the flipped cards array
@@ -118,9 +118,9 @@ function mousePressed() {
         }, 1000)
       }
     }
-}//end event
+}
 
-//class constructor
+//class template - constructor
 class Card {
   constructor(x, y, cardFaceImg) {
     this.x = x;
@@ -131,7 +131,7 @@ class Card {
     this.cardFaceImg = cardFaceImg;
     this.isMatch = false;
     this.show();
-  } //end card
+  }
   show() {
     if (this.face === UP || this.isMatch) {
        fill("#E1D9BC");
@@ -144,19 +144,18 @@ class Card {
       strokeWeight(5)
       stroke("#0D1A63");
       ellipse(this.x, this.y, this.width, this.height);
-      image(cardback, this.x - 50, this.y - 50); //adjust position ex. +10
+      image(cardback, this.x - 50, this.y - 50);
     }
-  } //end show
+  }
   didHit(mouseX, mouseY) {
     const distance = dist(mouseX, mouseY, this.x, this.y);
-    console.log("dist", distance);
     if (distance <= this.width / 2) {
       this.flip();
       return true;
     } else {
       return false;
     }
-  } //x,y
+  }
   flip() {
     if (this.face === DOWN) {
       this.face = UP;
@@ -164,8 +163,7 @@ class Card {
       this.face = DOWN;
     }
     this.show();
-  } //end flip
-  //end of card-constructor
+  }
 }
 
 //shuffle 
@@ -181,8 +179,7 @@ class Card {
       array[counter] = array[idx];
       array[idx] = temp;
     } return array;
-
-  }//end shuffle array
+  }
 
 
 
