@@ -10,7 +10,7 @@ let startingX = 150;//loops
 let startingY = 150;
 let cards = [];
 gameState = {
-  totalPairs: 0,
+  totalPairs: 5,
   flippedCards: [],
   numberMatched: 0,
   attempts: 0,
@@ -33,7 +33,6 @@ function preload() {
 //canvas setup
 function setup() {
   createCanvas(800, 600);
-  background("#30364F");
   let selectedFaces = [];
   for (let z = 0; z < 5; z++) {//images in project
     const randomIndex = floor(random(cardfaceArray.length));
@@ -56,13 +55,59 @@ function setup() {
   //alert('Match the fruit slices.')
 }//end setup
 
+//draw - scoreboard and message to the winner
+function draw () {
+   background("#30364F");
+   if (gameState.numberMatched === gameState.totalPairs) {
+    fill('yellow');
+    textSize(100);
+    text('You win!', 500, 425);
+    noLoop();
+   }
+   for (let k = 0; k < cards.length; k++) {
+    if(!cards[k].isMatch) {
+      cards[k].face = DOWN;
+    }
+    cards[k].show();
+   }
+   noLoop();
+   gameState.flippedCards.length = 0;
+   gameState.waiting = false;
+   fill(255);
+   textSize(36);
+   text('Attempts ' + gameState.attempts, 100, 500);
+   text('Matches ' + gameState.numberMatched, 100, 450);
+}//end of draw
+
 //event
 function mousePressed() {
+    if (gameState.waiting) {
+      return;
+    }
     for (let k = 0; k < cards.length; k++) {
+      //check number of cards flipped, then trigger flip func.
         if (gameState.flippedCards.length < 2 && cards[k].didHit(mouseX, mouseY)) {
-            console.log('flipped', cards[k]);
             gameState.flippedCards.push(cards[k]);
         }
+    }
+    if (gameState.flippedCards.length === 2) {
+      //cards matched to the same image
+      if (gameState.flippedCards[0].cardFaceImg === gameState.flippedCards[1].cardFaceImg) {
+        //card match, score: marked as matched so they do not flip back
+        gameState.flippedCards[0].isMatch = true;
+        gameState.flippedCards[1].isMatch = true;
+        //empty the flipped cards array
+        gameState.flippedCards.length = 0;
+        //increment the score
+        gameState.numberMatched++;
+        loop();
+      } else {
+          gameState.waiting = true;
+        const loopTimeout = window.setTimeout(() => {
+          loop();
+          window.clearTimeout(loopTimeout);
+        }, 1000)
+      }
     }
 }//end event
 
