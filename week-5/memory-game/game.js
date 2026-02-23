@@ -1,11 +1,8 @@
 /* 
     WORK IN PROGRESS
-    1. imgage resizing
-    2. placement
-    3. pair matching
-    3. record score
-*/
-
+    1. pair matching
+    2. record score
+  */
 //var setup
 const DOWN = 'down';
 const UP = 'up';
@@ -29,14 +26,24 @@ function preload() {
       loadImage('images/papaya.png')
     ]
 }
-
 //canvas setup
 function setup() {
   createCanvas(800, 600);
   background("#30364F");
-  for (let j = 0; j < 4; j++) {
-    for (let i = 0; i < 4; i++) {
-    cards.push(new Card(startingX, startingY, cardfaceArray[0])); 
+  let selectedFaces = [];
+  for (let z = 0; z < 5; z++) {//images in project
+    const randomIndex = floor(random(cardfaceArray.length));
+    const face = cardfaceArray[randomIndex];
+    selectedFaces.push(face);
+    selectedFaces.push(face);
+    //remove the used cardface so that it does not get randomly select again
+    cardfaceArray.splice(randomIndex, 1);
+  }
+  selectedFaces = shuffleArray(selectedFaces); //random selection
+  for (let j = 0; j < 2; j++)  {//rows
+    for (let i = 0; i < 5; i++)  {//columns
+      const faceImage = selectedFaces.pop();
+    cards.push(new Card(startingX, startingY, faceImage)); 
     startingX += 120; //space between for new cards
         }
     startingY += 120; //starting y
@@ -98,9 +105,24 @@ class Card {
     }
     this.show();
   } //end flip
-
   //end of card-constructor
 }
+
+//shuffle 
+  function shuffleArray (array) {
+    let counter = array.length;
+    while (counter > 0) {
+      //pick random index
+      const idx = Math.floor(Math.random() * counter);
+      //decrease counter by 1 (decrement)
+      counter--;
+      //swap the last element with it
+      const temp = array[counter];
+      array[counter] = array[idx];
+      array[idx] = temp;
+    } return array;
+
+  }//end shuffle array
 
 
 
