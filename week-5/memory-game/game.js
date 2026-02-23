@@ -10,7 +10,11 @@ let startingX = 150;//loops
 let startingY = 150;
 let cards = [];
 gameState = {
-
+  totalPairs: 0,
+  flippedCards: [],
+  numberMatched: 0,
+  attempts: 0,
+  waiting: false
 };
 //front - images
 let cardfaceArray = [];
@@ -55,8 +59,9 @@ function setup() {
 //event
 function mousePressed() {
     for (let k = 0; k < cards.length; k++) {
-        if (cards[k].didHit(mouseX, mouseY)) {
+        if (gameState.flippedCards.length < 2 && cards[k].didHit(mouseX, mouseY)) {
             console.log('flipped', cards[k]);
+            gameState.flippedCards.push(cards[k]);
         }
     }
 }//end event
@@ -70,21 +75,22 @@ class Card {
     this.height = 100;
     this.face = DOWN;
     this.cardFaceImg = cardFaceImg;
+    this.isMatch = false;
     this.show();
   } //end card
   show() {
-    if (this.face === DOWN) {
-      fill("#E1D9BC");
+    if (this.face === UP || this.isMatch) {
+       fill("#ff7444");
+       strokeWeight(3);
+       stroke("#F1FF5E");
+       ellipse(this.x, this.y, this.width, this.height);
+       image(this.cardFaceImg, this.x - 50, this.y - 50); 
+    } else {
+     fill("#E1D9BC");
       strokeWeight(3)
       stroke("#261CC1");
       ellipse(this.x, this.y, this.width, this.height);
       image(cardback, this.x - 50, this.y - 50); //adjust position ex. +10
-    } else {
-      fill("#ff7444");
-      strokeWeight(3);
-      stroke("#F1FF5E");
-      ellipse(this.x, this.y, this.width, this.height);
-       image(this.cardFaceImg, this.x - 50, this.y - 50); 
     }
   } //end show
   didHit(mouseX, mouseY) {
