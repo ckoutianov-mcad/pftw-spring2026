@@ -2,17 +2,20 @@ import llama from './assets/llama.jpg';
 import './App.css'
 
 function App() {
+  //Using array of variable for Llama facts
   const  llamaFacts = [
     "Llamas only feed on grass and other plants.",
     "Llamas can carry up to 200 pounds.",
     "Llamas language is humming.",
+  //Statements for ternary in same variable
     "Llamas stick their tongue out when angry.",
     "Llamas do not stick their tongue out when angry."
   ];
+  //Boolean for ternary
   const tongueOut = true;
 
   return (
-    <>
+    <> 
       <div>
         <h1>Llama Facts 🦙</h1>
         <ul>
