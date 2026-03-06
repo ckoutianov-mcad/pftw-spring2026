@@ -1,9 +1,9 @@
-function Camelid({name}) {
+function Camelid({name, trivia}) {
     console.log(name)
     return (
         <div>
             <h1>{name}</h1>
-            <p></p>
+            <p>{trivia}</p>
             <div></div>
         </div>
     );
