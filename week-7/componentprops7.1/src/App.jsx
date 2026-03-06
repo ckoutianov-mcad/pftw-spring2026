@@ -1,7 +1,6 @@
 import llamaImage from "./assets/llama.jpg";
 import alpacaImage from "./assets/alpaca.jpg";
 import Camelid from "./components/Camelid";
-import "./App.css";
 
 function App() {
   const camelidData = [
