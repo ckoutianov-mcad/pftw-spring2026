@@ -7,9 +7,19 @@
 
 .fragrance-table {
   width: 100%;
-  border: 3px dashed white;
+  border-bottom: 5px solid rgb(202, 188, 242);
 }
 
 .fragrance-table img {
   width: 200px;
+}
+
+.fragrance-table tr td {
+background-color: white;
+color: black;
+}
+
+.fragrance-table tr {
+  background-color: pink;
+  color: gray;
 }

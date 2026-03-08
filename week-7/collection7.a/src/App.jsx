@@ -1,4 +1,5 @@
 import './App.css'
+import { FragranceRow } from './FragranceRow';
 
 function App () {
   const favFragrancesArray = [
@@ -70,18 +71,25 @@ function App () {
             <th>Scent Type</th>
             <th>Notes</th>
             <th>Description</th>
+            <th>Layerble?</th>
             <th>Image</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{favFragrancesArray[0].name}</td>
-            <td>{favFragrancesArray[0].fragranceFamily}</td>
-            <td>{favFragrancesArray[0].scentType}</td>
-            <td>{favFragrancesArray[0].notes}</td>
-            <td>{favFragrancesArray[0].description}</td>
-            <td><img src={favFragrancesArray[0].image} alt={favFragrancesArray[0].name} /></td>
-          </tr>
+          {/* mapping collection */}
+          {favFragrancesArray.map((fragrance, index) => 
+          {
+            return <FragranceRow 
+            name={fragrance.name}
+            fragranceFamily={fragrance.fragranceFamily}
+            scentType={fragrance.scentType}
+            notes={fragrance.notes}
+            description={fragrance.description}
+            isLayerable={fragrance.isLayerable}
+            image={fragrance.image}
+            />
+          }
+          )}
         </tbody>
       </table>
     </>
