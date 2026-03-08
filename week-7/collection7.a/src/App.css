@@ -4,11 +4,24 @@
   padding: 2rem;
 }
 
+h1, p {
+  text-align: center;
+}
+
+body {
+  background-color: #faf7f4;
+  color: #362F4F;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .fragrance-table {
   width: 100%;
   margin: 20px 0;
-  border: 20px dashed rgb(255, 255, 255);
+  border-radius: 15px;
+  border: 0.5rem outset #c4d0d1;
+  background-color: #c4d0d1;
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .fragrance-table img {
@@ -18,11 +31,15 @@
 .fragrance-table td {
 padding: 15px;
 vertical-align: top;
-color: black;
-border-bottom: 10px solid rgb(232, 94, 94);
+letter-spacing: 0.03em;
+color: #362F4F;
 }
 
 .fragrance-table th {
-  background-color: #dbbeff;
-  color: whitesmoke;
+  padding: 15px;
+  border: 0.5rem outset #f6d1d5;
+  background-color: #f4f8ea;
+  color: #362F4F;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
 }
