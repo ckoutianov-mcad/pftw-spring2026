@@ -1,3 +1,7 @@
-.odd {
-    background-color: red;
+.odd-row {
+    background-color: #FFDBFD;
+}
+
+.even-row {
+    background-color: #C9BEFF;
 }

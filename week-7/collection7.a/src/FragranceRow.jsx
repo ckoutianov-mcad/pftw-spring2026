@@ -1,14 +1,14 @@
-import "./FragranceRow.css";
+import './FragranceRow.css';
 
-export function FragranceRow({name, fragranceFamily, scentType, notes, description, isLayerable, image, odd}) {
+function FragranceRow({ name, fragranceFamily, scentType, notes, description, isLayerable, image, odd }) {
     return (
-      <tr className={odd && "odd"}>
+      <tr className={odd ? 'odd-row' : 'even-row'}>
         <td>{name}</td>
         <td>{fragranceFamily}</td>
         <td>{scentType}</td>
         <td>{notes}</td>
         <td>{description}</td>
-        <td>{isLayerable && "yes"}</td>
+        <td>{isLayerable ? "Yes" : "No" }</td>
         <td>
           <img
             src={image}
@@ -18,3 +18,5 @@ export function FragranceRow({name, fragranceFamily, scentType, notes, descripti
       </tr>
     );
 }
+
+export default FragranceRow;
