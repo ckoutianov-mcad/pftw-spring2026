@@ -43,7 +43,7 @@ function App () {
       description:
         "An enhanced interpretation of the unexpected floral-fruity fragrance, CHANCE EAU TENDRE Eau de Parfum sweeps you into an intensified whirlwind of tenderness. The signature CHANCE bottle is reinvented with a silver cap and golden accent.",
       isLayerable: false,
-      image: "./valentino-born-in-roma.jpg"
+      image: "./public/images/chanel-chance.jpg"
     },
 
     {
@@ -60,8 +60,16 @@ function App () {
 
   return (
     <>
-    <h1>My Fragrance Collection</h1>
-    <p>Show my decks here</p>
+      <h1>My Fragrance Collection</h1>
+      <p>Show collection here</p>
+      <div>
+        {favFragrancesArray.map((fragrance, index) => {
+        return (
+        <div key={index}>
+          {fragrance.name}
+          </div> )  
+      })}
+      </div>
     </>
   )
 }
