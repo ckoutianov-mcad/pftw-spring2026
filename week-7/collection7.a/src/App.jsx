@@ -21,7 +21,7 @@ function App () {
       description:
         "TThis fragrance features a delightful menu of mouthwatering notes, including fluffy pink marshmallow, succulent strawberry, flaky coconut, delicate freesia, whipped vanilla, and pink musk. Boujee, fluffy, and delicious, this luxurious scent will linger with sweet temptation with every spritz.",
       isLayerable: true,
-      image: "./kayali-boujee-marsh.jpg",
+      image: "./images/kayali-boujee-marsh.jpg",
     },
 
     {
@@ -32,7 +32,7 @@ function App () {
       description:
         "Inspired by Rome, a place where past and present coexist, Born in Roma fragrances tell a story of self-expression: a celebration of people living freely, while embracing their heritage.",
       isLayerable: false,
-      image: "./valentino-born-in-roma.jpg",
+      image: "./images/valentino-born-in-roma.jpg",
     },
 
     {
@@ -43,7 +43,7 @@ function App () {
       description:
         "An enhanced interpretation of the unexpected floral-fruity fragrance, CHANCE EAU TENDRE Eau de Parfum sweeps you into an intensified whirlwind of tenderness. The signature CHANCE bottle is reinvented with a silver cap and golden accent.",
       isLayerable: false,
-      image: "./public/images/chanel-chance.jpg"
+      image: "./images/chanel-chance.jpg"
     },
 
     {
@@ -54,7 +54,7 @@ function App () {
       description:
         "Mochi Milk is the newest extension of DedCool’s MILK family of skin scents—fragrances that smell like you, only cozier. Mochi Milk is a sweeter, gourmand take on the warm notes found in both Milk and Xtra Milk. Think sweet rice milk, marshmallows, and vanilla. Words that describe Mochi Milk are sweet, whimsical, and nostalgic.",
       isLayerable: true,
-      image: "./dedcool-mochi-milk.jpg"
+      image: "./images/dedcool-mochi-milk.jpg"
     },
   ];
 
@@ -62,7 +62,7 @@ function App () {
     <>
       <h1>My Fragrance Collection</h1>
       <p>Showing {favFragrancesArray.length} fragrances in my collection.</p>
-      <table>
+      <table className="fragrance-table">
         <thead>
           <tr>
             <th>Name</th>
