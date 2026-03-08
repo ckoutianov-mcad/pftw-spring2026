@@ -1,5 +1,4 @@
 import './App.css'
-import { FragranceRow } from './FragranceRow';
 
 function App () {
   const favFragrancesArray = [
@@ -20,7 +19,7 @@ function App () {
       scentType: "Warm & Sweet Gourmands",
       notes: "Strawberry, Pink Marshmallow, Whipped Vanilla",
       description:
-        "TThis fragrance features a delightful menu of mouthwatering notes, including fluffy pink marshmallow, succulent strawberry, flaky coconut, delicate freesia, whipped vanilla, and pink musk. Boujee, fluffy, and delicious, this luxurious scent will linger with sweet temptation with every spritz.",
+        "This fragrance features a delightful menu of mouthwatering notes, including fluffy pink marshmallow, succulent strawberry, flaky coconut, delicate freesia, whipped vanilla, and pink musk. Boujee, fluffy, and delicious, this luxurious scent will linger with sweet temptation with every spritz.",
       isLayerable: true,
       image: "./images/kayali-boujee-marsh.jpg",
     },
@@ -80,6 +79,8 @@ function App () {
           {favFragrancesArray.map((fragrance, index) => 
           {
             return <FragranceRow 
+            key={fragrance.image}
+            odd={index % 2 === 0}
             name={fragrance.name}
             fragranceFamily={fragrance.fragranceFamily}
             scentType={fragrance.scentType}
