@@ -10,7 +10,7 @@ function App () {
       description:
         "This is a floral, ambery perfume that reinvents freshness with a neroli bud extraction to capture the flower’s fresh scent, sensuality with bio-converted amber to reveal a vibrant warmth, and intensity through a revolutionary musk molecule for an intense yet subtle trail.",
       isLayerable: false,
-      image: "./prada-paradoxe.jpg",
+      image: "./images/prada-paradoxe.jpg",
     },
 
     {
@@ -61,17 +61,31 @@ function App () {
   return (
     <>
       <h1>My Fragrance Collection</h1>
-      <p>Show collection here</p>
-      <div>
-        {favFragrancesArray.map((fragrance, index) => {
-        return (
-        <div key={index}>
-          {fragrance.name}
-          </div> )  
-      })}
-      </div>
+      <p>Showing {favFragrancesArray.length} fragrances in my collection.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Fragrance Family</th>
+            <th>Scent Type</th>
+            <th>Notes</th>
+            <th>Description</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{favFragrancesArray[0].name}</td>
+            <td>{favFragrancesArray[0].fragranceFamily}</td>
+            <td>{favFragrancesArray[0].scentType}</td>
+            <td>{favFragrancesArray[0].notes}</td>
+            <td>{favFragrancesArray[0].description}</td>
+            <td><img src={favFragrancesArray[0].image} alt={favFragrancesArray[0].name} /></td>
+          </tr>
+        </tbody>
+      </table>
     </>
-  )
+  );
 }
 
 export default App
