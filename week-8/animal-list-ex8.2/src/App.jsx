@@ -3,6 +3,7 @@ import "./App.css";
 import ButterflyComponent from "./ButterflyComponent";
 
 function App() {
+  //initial headline, with ability to update
   const [headline, setHeadline] = useState(
     "List of Butterflies",
   );
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <>
-      <h1>🦋 {headline}</h1>
+      <h1>{`Focusing on ${headline} 🦋`}</h1>
 
       {initialButterflies.map((loopButterfly) => {
         return (

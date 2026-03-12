@@ -1,7 +1,22 @@
 body {
-  background-color: black;
-  color: wheat;
+  background-color: #2C2C2C;
+  color: #E1D9BC;
+  font-size: 1.3rem;
+  font-weight:800;
+}
+
+h1 {
+  color: #F77F00 ;
 }
 .butterflyCard {
   padding: 5px;
+}
+
+button {
+  background-color: #ACBAC4;
+  color: #30364F;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
 }

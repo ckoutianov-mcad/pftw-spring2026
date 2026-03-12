@@ -6,7 +6,7 @@ export default function ButterflyComponent ({
         <div>
             <div className="butterflyCard">{butterflyName}</div>
             <div>
-                <button onClick={() => {clickFocus(butterflyName);}}> Focus </button> |  
+                <button onClick={() => {clickFocus(butterflyName);}}> Focus </button> 
                 <button onClick={() => {clickDelete(butterflyName);}}> Delete </button>
             </div>
         </div>
