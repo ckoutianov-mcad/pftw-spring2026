@@ -30,13 +30,17 @@ function App() {
       return butterfly !== butterflyName;
    });
     setButterflies(updatedArray);
+  } 
+  // refesh button using DOM
+  const refreshPage = () => {
+    window.location.reload();
   }
  
 
   return (
     <>
       <h1>{`Focusing on ${headline} 🦋`}</h1>
-
+      <button className="resetButton"onClick={refreshPage}>Reset List</button>
       {initialButterflies.map((loopButterfly) => {
         return (
           <ButterflyComponent
