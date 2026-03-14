@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import Masthead from './Masthead/Masthead';
+import ItemCard from './ItemCard/ItemCard';
 
 function App() {
   const [fragrances, setFragrances] = useState
@@ -62,9 +64,15 @@ function App() {
 
   return (
     <>
-      
+      <div className="page">
+        <Masthead /> my collection
+        <div className="collection">
+          {/* a place for my fgrance collection*/}my collection div
+          {/* use ItemCard component in loop */} loop
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default App
