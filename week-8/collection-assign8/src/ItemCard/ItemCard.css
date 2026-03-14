@@ -1,0 +1,10 @@
+.fragranceCard {
+    width: 100%;
+    max-width: 250px;
+    border: 3px solid red;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
