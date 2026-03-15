@@ -1,10 +1,63 @@
 .fragranceCard {
     width: 100%;
     max-width: 250px;
-    border: 3px solid red;
+    padding: 15px;
+    height: 450px;
+    margin: 15px;
+    border: 3px outset rgb(145, 11, 131);
+    background-color: antiquewhite;
     border-radius: 10px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     position: relative;
+}
+
+.fragranceCard:hover {
+    background-color: aliceblue;
+}
+
+
+.cardImage img {
+    max-width: 250px;
+    width: 100%;
+}
+
+.cardTitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.isLayerable {
+    width: 25px;
+    height: 25px;
+    top: 4px;
+    position: absolute;
+    z-index: 10px;
+    left: 15px;
+    color: lightgray;
+}
+
+.action a img {
+    width: 25px;
+    height: auto;
+}
+
+.action a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 3px;
+    background: pink;
+}
+
+.action a:hover {
+    background: rgb(255, 38, 226);
+}
+.notes {
+    font-style: italic;
+    color: green;
 }

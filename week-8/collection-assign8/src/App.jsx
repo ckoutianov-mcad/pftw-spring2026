@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Masthead from './Masthead/Masthead';
 import ItemCard from './ItemCard/ItemCard';
+import {nanoid} from "nanoid";
 
 function App() {
   const [fragrances, setFragrances] = useState([
@@ -65,17 +66,39 @@ function App() {
       id: "5"
     },
   ]);
-
+//returning array that is not deleted - updated
+  function deleteCard(id) {
+    console.log("delete me :(", id)
+    const updatedArray = fragrances.filter((setFragrances) => {
+      return setFragrances.id !==id
+    })
+    setFragrances(updatedArray)
+  }
+  //finding matching card, and copying - duplicating
+  function duplicateCard(id) {
+    console.log("duplicate me :)", id)
+    const matchingFragrance = fragrances.find ((setFragrances) => {
+      return setFragrances.id === id
+    });
+    const updatedFragrance = {...matchingFragrance, id: nanoid()}
+    setFragrances([...fragrances, updatedFragrance]);
+  }
   return (
     <>
       <div className="page">
-        <Masthead /> my collection
+        <Masthead />
+        <p className="item-count">Total Fragrances in my collection: {fragrances.length}</p>
+        <a>to delete click 'trash' icon; to duplicate fragrance card click 'copy' icon</a>
+
         <div className="collection">
-          {/* a place for my fgrance collection*/}my collection div
-          {/* use ItemCard component in loop */} loop
+          {/* a place for my fragrance collection*/}
+          {/* use ItemCard component in loop */} 
           {fragrances.map((favFragrance => {
             return (
-              <ItemCard key={favFragrance.id} {...favFragrance}/>
+              <ItemCard key={favFragrance.id} 
+              deleteFunction={deleteCard}
+              duplicateFunction={duplicateCard}
+              {...favFragrance}/>
             )
           }))}
         </div>

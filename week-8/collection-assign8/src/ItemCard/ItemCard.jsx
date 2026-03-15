@@ -1,5 +1,9 @@
 import PropTypes from "prop-types";
-import "./Itemcard.css";
+import clsx from "clsx";
+import "./ItemCard.css";
+import layer from "../assets/icons/layerable.png"
+import trash from "../assets/icons/delete.png";
+import copy from "../assets/icons/copy.png"
 export default function ItemCard({
     name,
     fragranceFamily,
@@ -8,10 +12,33 @@ export default function ItemCard({
     description,
     isLayerable,
     image,
-    id
+    id,
+    deleteFunction,
+    duplicateFunction
 }){
     return (
-        <div className="fragranceCard">hello</div>
+
+        <div className="fragranceCard">
+            <p className="notes">{notes}</p>
+            {isLayerable && <div className="isLayerable"> <img src={layer} title="Layerable fragrance" />Layerable</div>}
+
+            <div className="cardImage">
+                <img src={image} alt={name} />
+            </div>
+            <div className="cardTitle">{name}
+            </div>
+            <div className="action">
+
+            <a href="#" onClick={(evt) => {
+            evt.preventDefault();
+            deleteFunction(id)
+            }}><img src={trash}/></a>
+            <a href="#" onClick={(evt) => {
+            evt.preventDefault();
+            duplicateFunction(id)
+            }}><img src={copy}/></a>
+            </div>
+            </div>
     )}
     ItemCard.propTypes = {
       name: PropTypes.string,
@@ -21,5 +48,7 @@ export default function ItemCard({
       description: PropTypes.string,
       isLayerable: PropTypes.bool,
       image: PropTypes.string,
-      id: PropTypes.string
+      id: PropTypes.string,
+      deleteFunction: PropTypes.func,
+      duplicateFunction: PropTypes.func
     };
