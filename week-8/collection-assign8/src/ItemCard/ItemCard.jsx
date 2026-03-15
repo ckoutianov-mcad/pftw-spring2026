@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
-import clsx from "clsx";
 import "./ItemCard.css";
 import layer from "../assets/icons/layerable.png"
 import trash from "../assets/icons/delete.png";
 import copy from "../assets/icons/copy.png"
 export default function ItemCard({
     name,
-    fragranceFamily,
-    scentType,
     notes,
     description,
     isLayerable,
@@ -17,29 +14,42 @@ export default function ItemCard({
     duplicateFunction
 }){
     return (
-
-        <div className="fragranceCard">
-            <p className="notes">{notes}</p>
-            {isLayerable && <div className="isLayerable"> <img src={layer} title="Layerable fragrance" />Layerable</div>}
-
-            <div className="cardImage">
-                <img src={image} alt={name} />
-            </div>
-            <div className="cardTitle">{name}
-            </div>
-            <div className="action">
-
-            <a href="#" onClick={(evt) => {
-            evt.preventDefault();
-            deleteFunction(id)
-            }}><img src={trash}/></a>
-            <a href="#" onClick={(evt) => {
-            evt.preventDefault();
-            duplicateFunction(id)
-            }}><img src={copy}/></a>
-            </div>
-            </div>
-    )}
+      <div className="fragranceCard">
+        {isLayerable && (
+          <div className="isLayerable">
+            {" "}
+            <img src={layer} title="Layerable fragrance" />
+            Layerable
+          </div>
+        )}
+        <div className="cardTitle">{name}</div>
+        <div className="cardImage">
+          <img src={image} alt={name} />
+        </div>
+        <p className="notes">{notes}</p>
+        <p className="description">{description}</p>
+        <div className="action">
+          <a
+            href="#"
+            onClick={(evt) => {
+              evt.preventDefault();
+              deleteFunction(id);
+            }}
+          >
+            <img src={trash} />
+          </a>
+          <a
+            href="#"
+            onClick={(evt) => {
+              evt.preventDefault();
+              duplicateFunction(id);
+            }}
+          >
+            <img src={copy} />
+          </a>
+        </div>
+      </div>
+    );}
     ItemCard.propTypes = {
       name: PropTypes.string,
       fragranceFamily: PropTypes.string,

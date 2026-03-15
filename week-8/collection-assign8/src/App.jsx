@@ -7,7 +7,7 @@ import {nanoid} from "nanoid";
 function App() {
   const [fragrances, setFragrances] = useState([
     {
-      name: "Prada Paradoxe Eau de Parfum",
+      name: "Prada Paradoxe EDP",
       fragranceFamily: "Florals",
       scentType: "Warm Florals",
       notes: "Neroli Bud, White Amber, White Musk",
@@ -19,7 +19,7 @@ function App() {
     },
 
     {
-      name: "Kayali Yum Boujee Marshmallow Eau de Parfum",
+      name: "Kayali Yum Boujee Marshmallow EDP",
       fragranceFamily: "Warm & Spicy",
       scentType: "Warm & Sweet Gourmands",
       notes: "Strawberry, Pink Marshmallow, Whipped Vanilla",
@@ -31,7 +31,7 @@ function App() {
     },
 
     {
-      name: "Valentino Donna Born in Roma Eau de Parfum",
+      name: "Valentino Donna Born in Roma EDP",
       fragranceFamily: "Florals",
       scentType: "Warm Florals",
       notes: "Blackcurrant, Jasmine Grandiflorum, Bourbon Vanilla",
@@ -43,7 +43,7 @@ function App() {
     },
 
     {
-      name: "Chanel Chance Eau Tendre Eau de Parfum",
+      name: "Chanel Chance Eau Tendre EDP",
       fragranceFamily: "Florals",
       scentType: "Fruity Florals",
       notes: "Grapefruit, Quince, Rose Accord, White Musk",
@@ -55,7 +55,7 @@ function App() {
     },
 
     {
-      name: "DedCool Mochi Milk Eau de Parfum",
+      name: "DedCool Mochi Milk EDP",
       fragranceFamily: "Warm & Spicy",
       scentType: "Warm & Sweet Gourmands",
       notes: "Marshmallow, Vanilla Bean, Sweet Rice Milk",
@@ -83,6 +83,7 @@ function App() {
     const updatedFragrance = {...matchingFragrance, id: nanoid()}
     setFragrances([...fragrances, updatedFragrance]);
   }
+  
   return (
     <>
       <div className="page">
