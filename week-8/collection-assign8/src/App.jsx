@@ -5,6 +5,7 @@ import ItemCard from './ItemCard/ItemCard';
 import {nanoid} from "nanoid";
 
 function App() {
+  //wrapping array in useState
   const [fragrances, setFragrances] = useState([
     {
       name: "Prada Paradoxe EDP",
@@ -66,7 +67,7 @@ function App() {
       id: "5"
     },
   ]);
-//returning array that is not deleted - updated
+//returning array without deleted card
   function deleteCard(id) {
     console.log("delete me :(", id)
     const updatedArray = fragrances.filter((setFragrances) => {
@@ -74,7 +75,7 @@ function App() {
     })
     setFragrances(updatedArray)
   }
-  //finding matching card, and copying - duplicating
+  //finding matching card, and copying 
   function duplicateCard(id) {
     console.log("duplicate me :)", id)
     const matchingFragrance = fragrances.find ((setFragrances) => {
@@ -88,8 +89,8 @@ function App() {
     <>
       <div className="page">
         <Masthead />
-        <p className="item-count">Total Fragrances in my collection: {fragrances.length}</p>
-        <a>to delete click 'trash' icon; to duplicate fragrance card click 'copy' icon</a>
+        <p className="item-count">My collection has {fragrances.length} fragrances.</p>
+        <a>INSTRUCTIONS: To delete a fragrance card click 'trash' icon; to duplicate click 'copy' icon.</a>
 
         <div className="collection">
           {/* a place for my fragrance collection*/}
